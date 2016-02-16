@@ -1,4 +1,9 @@
-// stb_leakcheck.h - v0.1 - quick & dirty malloc leak-checking - public domain
+// stb_leakcheck.h - v0.2 - quick & dirty malloc leak-checking - public domain
+// LICENSE
+//
+//   This software is in the public domain. Where that dedication is not
+//   recognized, you are granted a perpetual, irrevocable license to copy,
+//   distribute, and modify this file as you see fit.
 
 #ifdef STB_LEAKCHECK_IMPLEMENTATION
 #undef STB_LEAKCHECK_IMPLEMENTATION // don't implenment more than once
@@ -10,6 +15,8 @@
 #undef realloc
 #endif
 
+#include <assert.h>
+#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <stddef.h>
@@ -27,7 +34,7 @@ static stb_leakcheck_malloc_info *mi_head;
 
 void *stb_leakcheck_malloc(size_t sz, char *file, int line)
 {
-   stb_leakcheck_malloc_info *mi = malloc(sz + sizeof(*mi));
+   stb_leakcheck_malloc_info *mi = (stb_leakcheck_malloc_info *) malloc(sz + sizeof(*mi));
    if (mi == NULL) return mi;
    mi->file = file;
    mi->line = line;

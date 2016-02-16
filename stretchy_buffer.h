@@ -1,7 +1,8 @@
-// stretchy_buffer.h - v1.01 - public domain - nothings.org/stb
+// stretchy_buffer.h - v1.02 - public domain - nothings.org/stb
 // a vector<>-like dynamic array for C
 //
 // version history:
+//      1.02 -  compiles as C++, but untested
 //      1.01 -  added a "common uses" documentation section
 //      1.0  -  fixed bug in the version I posted prematurely
 //      0.9  -  rewrite to try to avoid strict-aliasing optimization
@@ -160,6 +161,12 @@
 //    The details are trivial and implementation is straightforward;
 //    the main trick is in realizing in the first place that it's
 //    possible to do this in a generic, type-safe way in C.
+//
+// LICENSE
+//
+//   This software is in the public domain. Where that dedication is not
+//   recognized, you are granted a perpetual, irrevocable license to copy,
+//   distribute, and modify this file as you see fit.
 
 #ifndef STB_STRETCHY_BUFFER_H_INCLUDED
 #define STB_STRETCHY_BUFFER_H_INCLUDED
@@ -193,7 +200,7 @@ static void * stb__sbgrowf(void *arr, int increment, int itemsize)
    int dbl_cur = arr ? 2*stb__sbm(arr) : 0;
    int min_needed = stb_sb_count(arr) + increment;
    int m = dbl_cur > min_needed ? dbl_cur : min_needed;
-   int *p = realloc(arr ? stb__sbraw(arr) : 0, itemsize * m + sizeof(int)*2);
+   int *p = (int *) realloc(arr ? stb__sbraw(arr) : 0, itemsize * m + sizeof(int)*2);
    if (p) {
       if (!arr)
          p[1] = 0;

@@ -66,7 +66,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /MTd /W3 /GX /Zi /Od /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "TT_TEST" /FR /FD /GZ /c
+# ADD CPP /nologo /MTd /W3 /GX /Zi /Od /I ".." /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "MAIN_TEST" /FR /FD /GZ /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -84,6 +84,10 @@ LINK32=link.exe
 
 # Name "stb - Win32 Release"
 # Name "stb - Win32 Debug"
+# Begin Source File
+
+SOURCE=..\docs\other_libs.md
+# End Source File
 # Begin Source File
 
 SOURCE=.\stb.c
@@ -106,6 +110,10 @@ SOURCE=..\stb_dxt.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\stb_easy_font.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\stb_herringbone_wang_tile.h
 # End Source File
 # Begin Source File
@@ -123,6 +131,10 @@ SOURCE=..\stb_image_write.h
 # Begin Source File
 
 SOURCE=..\stb_leakcheck.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\stb_malloc.h
 # End Source File
 # Begin Source File
 
@@ -147,6 +159,10 @@ SOURCE=..\stb_truetype.h
 # Begin Source File
 
 SOURCE=..\stb_vorbis.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\stb_voxel_render.h
 # End Source File
 # Begin Source File
 
